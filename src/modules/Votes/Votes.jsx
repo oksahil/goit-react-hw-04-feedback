@@ -47,7 +47,7 @@ class Votes extends Component {
         
     return (
         <div>
-            <h3 className={css.title}>Please leave feedback</h3>
+            <h3 className={css.title}><p>Cafe Expresso</p><p>Please leave feedback</p></h3>
             <div className={css.wrapper}>
                 <ul className={css.block}>
                     <li>
