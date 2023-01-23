@@ -1,6 +1,4 @@
-// import { Fragment } from 'react';
 import Votes from './modules/Votes/Votes';
-// import './shared/components/Button/Button';
 import './index.css';
 import MainMenu from 'modules/MainMenu/MainMenu';
 import mainMenu from "./data/mainMenu.json";

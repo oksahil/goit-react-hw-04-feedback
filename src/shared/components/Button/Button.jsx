@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import css from "./button.module.scss";
+import css from "./button.module.css";
 
 const Button = ({children, onClick, type}) => {
     // console.log(children);
@@ -10,7 +10,7 @@ const Button = ({children, onClick, type}) => {
 export default Button;
 
 Button.defaultProps = {
-    type: "submit",
+    type: "button",
 }
 
 Button.prototypes = {

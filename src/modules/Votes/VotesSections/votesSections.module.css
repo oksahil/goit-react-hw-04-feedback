@@ -1,0 +1,11 @@
+.title {
+    font-size: 24px;
+    margin-top: 20px;
+    color: indigo;
+    text-align: center;
+}
+
+.wrapper {
+    display: grid;
+    gap: 30px;
+}

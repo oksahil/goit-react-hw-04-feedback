@@ -1,5 +1,9 @@
 import { Component } from "react";
-import css from "./votes.module.css";
+
+import VotesVariants from "./VotesVariants/VotesVariants";
+import VotesStatistics from "./VotesStatistics/VotesStatistics";
+import VotesSections from "./VotesSections/VotesSections";
+
 
 class Votes extends Component {
     state = {
@@ -25,51 +29,26 @@ class Votes extends Component {
         return Number(positiveVoutes);
     }
 
-    addGoodVotes = () => {
+    addVotes = (name) => {
         this.setState(prevState => {
-            return { good: prevState.good + 1 };
+            return { [name]: prevState[name] + 1 };
         })
     }
-    addNeutralVotes = () => {
-        this.setState(prevState => {
-            return { neutral: prevState.neutral + 1 };
-        })
-    }
-        addBadVotes = () => {
-        this.setState(prevState => {
-            return { bad: prevState.bad + 1 };
-        })
-    }
+ 
     render() {
         const { good, neutral, bad } = this.state;
         const total = this.countTotalFeedback();
         const positiveVoutes = this.countPositiveFeedbackPercentage("good");
         
     return (
-        <div>
-            <h3 className={css.title}><p>Cafe Expresso</p><p>Please leave feedback</p></h3>
-            <div className={css.wrapper}>
-                <ul className={css.block}>
-                    <li>
-                        <button className={css.btn} onClick={this.addGoodVotes}>good</button>
-                        <p className={css.box}>{good}</p>
-                        
-                    </li>
-                    <li>
-                        <button className={css.btn} onClick={this.addNeutralVotes}>neutral</button>
-                        <p className={css.box}>{neutral}</p>
-                        
-                    </li>
-                    <li>
-                        <button className={css.btn} onClick={this.addBadVotes}>bad</button>
-                        <p className={css.box}>{bad}</p>
-                        
-                    </li>
-                </ul>
-            </div>
-            <h3 className={css.title}>Total voutes: {total}</h3>
-            <h3 className={css.title}>Pozitive feedback: {positiveVoutes} %</h3>
-        </div>
+        <>
+            <VotesSections title="Please leave feedback">
+                <VotesVariants good={good} neutral={neutral} bad={bad} addVotes={this.addVotes} />
+            </VotesSections>
+            <VotesSections title="Statictics">
+                <VotesStatistics good={good} neutral={neutral} bad={bad} total={total} positiveVoutes={positiveVoutes}/>               
+            </VotesSections>
+        </>
         )
     }
 }

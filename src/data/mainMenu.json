@@ -2,11 +2,11 @@
     {
         "id": "1",
         "title": "Feedback",
-        "link": "#1"
+        "link": "https://oksahil.github.io/goit-react-hw-02-feedback/"
     },
     {
         "id": "2",
-        "title": "Foonebook",
+        "title": "Phonebook",
         "link": "#2"
     }
 ]
