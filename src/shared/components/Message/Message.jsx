@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import css from "./message.module.css";
 
-const MessageStatistics = ({ message }) => {
+const Message = ({ message }) => {
     return(
   <h3 className={css.title}>{message}</h3>
     )
 }
 
-export default MessageStatistics;
+export default Message;
 
-MessageStatistics.propTypes = {
+Message.propTypes = {
     message: PropTypes.string.isRequired,
 }

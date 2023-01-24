@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import 'react-notifications/lib/notifications.css';
 import css from "../votes.module.css";
-import MessageStatistics from "../../../shared/components/Message/Message"
+import Message from "../../../shared/components/Message/Message"
 
 const VotesStatistics = ({ good, neutral, bad, total, positiveVoutes }) => {
     
     if (total === 0) {
         return(
-            <MessageStatistics message="There is no feedback" />
+            <Message message="There is no feedback" />
         )
         }
         return (
