@@ -42,6 +42,7 @@ class Votes extends Component {
         
     return (
         <>
+            <h2 className={css.titlePage}>Feedback of caffe Expresso</h2>
             <VotesSections title="Please leave feedback">
                 <VotesVariants good={good} neutral={neutral} bad={bad} addVotes={this.addVotes} />
             </VotesSections>
