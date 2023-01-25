@@ -4,7 +4,7 @@ import css from "./votesSections.module.css";
 const VotesSections = ({ children, title }) => {
     return(
     <div className={css.wrapper}>
-        <h3 className={css.title}><p>{title }</p></h3>
+        <h3 className={css.title}>{title }</h3>
         {children}
         </div>
     )
