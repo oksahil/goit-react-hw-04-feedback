@@ -3,6 +3,7 @@ import { Component } from "react";
 import VotesVariants from "./VotesVariants/VotesVariants";
 import VotesStatistics from "./VotesStatistics/VotesStatistics";
 import VotesSections from "./VotesSections/VotesSections";
+import css from "./Votes.module.css"
 
 
 class Votes extends Component {
