@@ -6,8 +6,6 @@ import VotesSections from "./VotesSections/VotesSections";
 
 import css from "./votes.module.css";
 
-const votesOptions = ["good", "neutral", "bad"];
-
 class Votes extends Component {
     state = {
         good: 0,
@@ -47,7 +45,7 @@ class Votes extends Component {
         <>
             <h2 className={css.titlePage}>Feedback of caffe Expresso</h2>
             <VotesSections title="Please leave feedback">
-                <VotesVariants options={votesOptions} addVotes={this.addVotes} />
+                <VotesVariants options={Object.keys(this.state)} addVotes={this.addVotes} />
             </VotesSections>
             <VotesSections title="Statictics">
                 <VotesStatistics good={good} neutral={neutral} bad={bad} total={total} positiveVoutes={positiveVoutes}/>               

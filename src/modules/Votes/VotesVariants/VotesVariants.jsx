@@ -4,20 +4,22 @@ import Button from "../../../shared/components/Button/Button";
 
 import css from "../votes.module.css";
 
-const VotesVariants = ({ options, addVotes }) => {
-    const buttonsElements = options.map(name => <p key={name} >
-        <Button onClick={() => addVotes(name)} type="button">{name}</Button>
-                                       </p>)
+const VotesVariants = ({ options, addVotes  }) => {
     return (
-        <>
-                <div className={css.block}>
-                    
-                       {buttonsElements}
-                
-                </div>
-        </>
-    )
-}
+        <div className={css.block}>
+            {options.map(option => {
+                return (
+                <Button type="button" onClick={() => addVotes (option)}
+                    key={option}
+                    className={css.btn}>
+                    {option}
+                </Button>
+            );
+            })}
+        </div>
+            
+    );
+};
 
 export default VotesVariants;
 
