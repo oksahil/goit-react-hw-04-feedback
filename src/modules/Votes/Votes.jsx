@@ -3,8 +3,10 @@ import { Component } from "react";
 import VotesVariants from "./VotesVariants/VotesVariants";
 import VotesStatistics from "./VotesStatistics/VotesStatistics";
 import VotesSections from "./VotesSections/VotesSections";
+
 import css from "./votes.module.css";
 
+const votesOptions = ["good", "neutral", "bad"];
 
 class Votes extends Component {
     state = {
@@ -26,7 +28,7 @@ class Votes extends Component {
             return 0;
         }
         const value = this.state[propName];
-        const positiveVoutes = ((value / total)*100).toFixed(2);
+        const positiveVoutes = ((value / total)*100).toFixed(0);
         return Number(positiveVoutes);
     }
 
@@ -45,7 +47,7 @@ class Votes extends Component {
         <>
             <h2 className={css.titlePage}>Feedback of caffe Expresso</h2>
             <VotesSections title="Please leave feedback">
-                <VotesVariants good={good} neutral={neutral} bad={bad} addVotes={this.addVotes} />
+                <VotesVariants options={votesOptions} addVotes={this.addVotes} />
             </VotesSections>
             <VotesSections title="Statictics">
                 <VotesStatistics good={good} neutral={neutral} bad={bad} total={total} positiveVoutes={positiveVoutes}/>               

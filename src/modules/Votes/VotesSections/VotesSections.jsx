@@ -12,7 +12,7 @@ const VotesSections = ({ children, title }) => {
 
 export default VotesSections;
 
-VotesSections.prototypes = {
+VotesSections.propTypes = {
     title: PropTypes.string.isRequired,
     children: PropTypes.element.isRequired,
 }

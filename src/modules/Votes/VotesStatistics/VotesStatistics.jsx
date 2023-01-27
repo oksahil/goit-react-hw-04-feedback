@@ -15,15 +15,15 @@ const VotesStatistics = ({ good, neutral, bad, total, positiveVoutes }) => {
             <>
                 <ul className={css.block}>
                     <li>
-                        <p className={css.text}>good</p>
+                        {/* <p className={css.text}>good</p> */}
                         <p className={css.box}>{good}</p>
                     </li>
                     <li>
-                        <p className={css.text}>neutral</p>
+                        {/* <p className={css.text}>neutral</p> */}
                         <p className={css.box}>{neutral}</p>
                     </li>
                     <li>
-                        <p className={css.text}>bad</p>
+                        {/* <p className={css.text}>bad</p> */}
                         <p className={css.box}>{bad}</p>
                     </li>
                 </ul>

@@ -1,6 +1,5 @@
 .title {
     font-size: 24px;
-    /* font-weight: bold; */
     margin-top: 20px;
     margin-bottom: 20px;
     color: indigo;
@@ -33,18 +32,13 @@
     border-radius: 25px;
     width: 35px;
     color: gray;
-    margin-top: 25px;
-
     font-size: 24px;
     font-weight: bold;
-
-    margin-bottom: 25px;
     color: indigo;
     text-align: center;
 }
 .text {
     font-size: 24px;
-    /* font-weight: bold; */
     margin-top: 20px;
     margin-bottom: 20px;
     color: #ffffff;

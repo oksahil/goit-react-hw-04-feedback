@@ -1,29 +1,30 @@
 import PropTypes from "prop-types";
-import css from "../votes.module.css";
+
 import Button from "../../../shared/components/Button/Button";
-// import Votes from "../Votes";
 
+import css from "../votes.module.css";
 
-const VotesVariants = ({addVotes}) => {
+const VotesVariants = ({ options, addVotes }) => {
+    const buttonsElements = options.map(name => <p key={name} >
+        <Button onClick={() => addVotes(name)} type="button">{name}</Button>
+                                       </p>)
     return (
         <>
-                <ul className={css.block}>
-                    <li>
-                        <Button onClick={() => addVotes("good")} type="button">Good</Button>
-                    </li>
-                    <li>
-                        <Button onClick={() => addVotes("neutral")} type="button">Neutral</Button>
-                    </li>
-                    <li>
-                        <Button onClick={() => addVotes("bad")} type="button">Bad</Button>
-                    </li>
-                </ul>
+                <div className={css.block}>
+                    
+                       {buttonsElements}
+                
+                </div>
         </>
     )
 }
 
 export default VotesVariants;
 
+
+
 VotesVariants.propTypes = {
     addVotes: PropTypes.func.isRequired,
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
+
