@@ -9,12 +9,14 @@ const VotesVariants = ({ options, addVotes  }) => {
         <div className={css.block}>
             {options.map(option => {
                 return (
-                <Button type="button" onClick={() => addVotes (option)}
-                    key={option}
-                    className={css.btn}>
-                    {option}
-                </Button>
-            );
+                    <Button
+                        type="button"
+                        onClick={() => addVotes(option)}
+                        key={option}
+                        className={css.btn}>
+                            {option}
+                    </Button>
+                );
             })}
         </div>
             

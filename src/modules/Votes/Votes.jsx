@@ -3,7 +3,7 @@ import { Component } from "react";
 import VotesVariants from "./VotesVariants/VotesVariants";
 import VotesStatistics from "./VotesStatistics/VotesStatistics";
 import VotesSections from "./VotesSections/VotesSections";
-
+import Message from "../../shared/components/Message/Message"
 import css from "./votes.module.css";
 
 class Votes extends Component {
@@ -28,6 +28,7 @@ class Votes extends Component {
         const value = this.state[propName];
         const positiveVoutes = ((value / total)*100).toFixed(0);
         return Number(positiveVoutes);
+            
     }
 
     addVotes = (name) => {
@@ -48,7 +49,11 @@ class Votes extends Component {
                 <VotesVariants options={Object.keys(this.state)} addVotes={this.addVotes} />
             </VotesSections>
             <VotesSections title="Statictics">
-                <VotesStatistics good={good} neutral={neutral} bad={bad} total={total} positiveVoutes={positiveVoutes}/>               
+                {
+                    this.countTotalFeedback() > 0 ?
+                    (<VotesStatistics good={good} neutral={neutral} bad={bad} total={total} positiveVoutes={positiveVoutes} />) :
+                        (<Message message="There is no feedback" />)
+                }
             </VotesSections>
         </>
         )
