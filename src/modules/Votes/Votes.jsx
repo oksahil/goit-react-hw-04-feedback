@@ -1,63 +1,56 @@
-import { Component } from "react";
+import { useState } from "react";
 
 import VotesVariants from "./VotesVariants/VotesVariants";
 import VotesStatistics from "./VotesStatistics/VotesStatistics";
 import VotesSections from "./VotesSections/VotesSections";
-import Message from "../../shared/components/Message/Message"
+import Message from "../../shared/components/Message/Message";
+
 import css from "./votes.module.css";
 
-class Votes extends Component {
-    state = {
+const Votes = () => {
+    const [voting, setVoting] = useState({
         good: 0,
         neutral: 0,
         bad: 0,
+    })
+
+const addVotes = (name) => {
+    setVoting(prevState => {
+        return { ...prevState, [name]: prevState[name] + 1 };
+        })
     }
 
-    countTotalFeedback() {
-        const { good, neutral, bad } = this.state;
-        const total = good + neutral + bad;
-        return total;
-    }
-    
-    countPositiveFeedbackPercentage(propName) {
-
-        const total = this.countTotalFeedback();
-                if (!total) {
+    const total = voting.good + voting.neutral + voting.bad;
+   
+    const countPositiveFeedbackPercentage = (propName) => {
+        if (!total) {
             return 0;
         }
-        const value = this.state[propName];
-        const positiveVoutes = ((value / total)*100).toFixed(0);
+        const value = voting[propName];
+        const positiveVoutes = ((value / total) * 100).toFixed(0);
         return Number(positiveVoutes);
             
     }
 
-    addVotes = (name) => {
-        this.setState(prevState => {
-            return { [name]: prevState[name] + 1 };
-        })
-    }
- 
-    render() {
-        const { good, neutral, bad } = this.state;
-        const total = this.countTotalFeedback();
-        const positiveVoutes = this.countPositiveFeedbackPercentage("good");
+    const positiveVoutes = countPositiveFeedbackPercentage("good");
         
     return (
         <>
             <h2 className={css.titlePage}>Feedback of caffe Expresso</h2>
             <VotesSections title="Please leave feedback">
-                <VotesVariants options={Object.keys(this.state)} addVotes={this.addVotes} />
+                <VotesVariants options={Object.keys(voting)} addVotes={addVotes} />
             </VotesSections>
             <VotesSections title="Statictics">
                 {
-                    this.countTotalFeedback() > 0 ?
-                    (<VotesStatistics good={good} neutral={neutral} bad={bad} total={total} positiveVoutes={positiveVoutes} />) :
-                        (<Message message="There is no feedback" />)
+                    total > 0 ?
+                    (<VotesStatistics good={voting.good} neutral={voting.neutral} bad={voting.bad} total={total} positiveVoutes={positiveVoutes} />) :
+                    (<Message message="There is no feedback" />)
                 }
             </VotesSections>
         </>
         )
     }
-}
+
+ 
 
 export default Votes;
